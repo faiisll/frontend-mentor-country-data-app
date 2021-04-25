@@ -40,7 +40,7 @@ export default function Home(props) {
 
   useEffect(() => {
     fetchData();
-  }, [country]);
+  }, [country]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const CardList = () => {
     return datas.map((data, index) => <Card key={index} data={data} />);
