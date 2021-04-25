@@ -100,7 +100,7 @@ const Container = styled.div`
   width: 100%;
 
   @media ${(props) => props.theme.device.tablet} {
-    padding: 20px 80px 20px 80px;
+    padding: 50px 80px 20px 80px;
   }
 
 `;

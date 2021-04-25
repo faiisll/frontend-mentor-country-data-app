@@ -43,8 +43,8 @@ const Container = styled.div`
     }
 
     @media ${(props) => props.theme.device.desktopM} {
-        width: 320px;
-        height: 400px;
+        width: 270px;
+        height: 350px;
         
     }
 
@@ -63,6 +63,8 @@ const ImageContainer = styled.div`
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+
+        border-radius: 5px 5px 0 0;
     `;
 
 const DescContainer = styled.div`
