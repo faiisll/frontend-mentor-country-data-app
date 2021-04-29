@@ -14,16 +14,16 @@ export default function Home(props) {
   const [slice, setSlice] = useState(0);
 
   const fetchData = async () => {
-    let url = "";
+    let url = "https://restcountries.eu/rest/v2/all?fields=name;capital;population;flag;region;alpha3Code;borders;subregion;currencies;topLevelDomain;languages";
     setLoading(true);
 
-    if (country === "all") {
-      url =
-        "https://restcountries.eu/rest/v2/all?fields=name;capital;population;flag;region;alpha3Code;borders;subregion;currencies;topLevelDomain;languages";
-    }
-    if (country !== "all") {
-      url = `https://restcountries.eu/rest/v2/region/${country}?fields=name;capital;population;flag;region;alpha3Code;borders;subregion;currencies;topLevelDomain;languages`;
-    }
+    // if (country === "all") {
+    //   url =
+    //     "https://restcountries.eu/rest/v2/all?fields=name;capital;population;flag;region;alpha3Code;borders;subregion;currencies;topLevelDomain;languages";
+    // }
+    // if (country !== "all") {
+    //   url = `https://restcountries.eu/rest/v2/region/${country}?fields=name;capital;population;flag;region;alpha3Code;borders;subregion;currencies;topLevelDomain;languages`;
+    // }
 
     axios
       .get(url)
@@ -40,10 +40,16 @@ export default function Home(props) {
 
   useEffect(() => {
     fetchData();
-  }, [country]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const CardList = () => {
-    return datas.map((data, index) => <Card key={index} data={data} />);
+    let localData = [];
+    if(country === "all"){
+      localData = datas;
+    }else{
+      localData = datas.filter(data => data.region.toLowerCase() === country);
+    }
+    return localData.map((data, index) => <Card key={index} data={data} />);
   };
 
 
