@@ -5,6 +5,7 @@ import {SearchBar, Dropdown, Card} from "../components";
 import {Context} from "../Context";
 
 import {PushSpinner} from "react-spinners-kit";
+import Wrapper from '../components/wrapper';
 
 export default function Home(props) {
   const [datas, setDatas] = useState([]);
@@ -81,6 +82,8 @@ export default function Home(props) {
 
 
   return (
+    <Wrapper>
+
     <Container>
       <Header>
         <SearchBar onKeyPress={Searching} />
@@ -97,6 +100,7 @@ export default function Home(props) {
         {search === "" ? <BtnMore onClick={loadMore}>More</BtnMore> : ""}
       </Footer>
     </Container>
+    </Wrapper>
   );
 }
 

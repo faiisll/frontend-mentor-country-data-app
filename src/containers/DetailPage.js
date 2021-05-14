@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {Button} from "../components";
 import {PushSpinner} from "react-spinners-kit";
 import {Link} from "react-router-dom";
+import Wrapper from '../components/wrapper';
 
 export default function DetailPage(props) {
   const [country, setCountry] = useState({
@@ -34,6 +35,8 @@ export default function DetailPage(props) {
   
 
   return (
+    <Wrapper>
+
     <Container>
       <Header>
         <Button>Back</Button>
@@ -92,6 +95,7 @@ export default function DetailPage(props) {
         </DescContainer>
       </Content>
     </Container>
+    </Wrapper>
   );
 }
 
